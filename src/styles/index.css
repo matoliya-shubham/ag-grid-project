@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+.row-highlight {
+  background-color: #fff3cd;
+  transition: background-color 0.5s ease;
+}
