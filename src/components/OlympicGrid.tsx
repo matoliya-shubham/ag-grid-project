@@ -27,6 +27,7 @@ import type { IOlympicData } from "../types/olympicData";
 import { getServerSideDatasource } from "../services/gridService";
 import { useGridData } from "../hooks/useGridData";
 import { showCellUpdateToast, showGoldUpdateToast } from "../utils/toastUtils";
+import { Spinner } from "./Spinner";
 
 ModuleRegistry.registerModules([
   NumberEditorModule,
@@ -227,7 +228,14 @@ export const OlympicGrid: React.FC = () => {
             onClick={incrementGoldForUS}
             disabled={isLoading}
           >
-            {isLoading ? "Fetching data..." : "Inc GOLD for Selected Rows"}
+            {isLoading ? (
+              <div className="flex items-center gap-1">
+                <Spinner />
+                <span>Fetching data...</span>
+              </div>
+            ) : (
+              "Increase GOLD for Selected Rows"
+            )}
           </button>
         </div>
         {totalRowCount && (
