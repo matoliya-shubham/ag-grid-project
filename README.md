@@ -41,3 +41,11 @@ cd ag-grid-project
 npm install
 npm start
 ```
+
+## 🔑 Environment Variables
+
+Before starting the project, make sure to create a `.env` file in the root directory with the following variable:
+
+```env
+VITE_CONVEX_URL=your_convex_deployment_url
+```
