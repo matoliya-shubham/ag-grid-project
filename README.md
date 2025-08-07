@@ -1,69 +1,43 @@
-# React + TypeScript + Vite
+# AG Grid Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based data grid solution leveraging **AG Grid** with advanced server-side features for handling large, dynamic datasets efficiently.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ​ Features
 
-## Expanding the ESLint configuration
+- **Server-Side Row Model**
+  - Utilizes lazy loading and infinite scrolling to fetch data on demand, enabling smooth performance even with huge datasets.
+    [oai_citation:0‡ag-grid.com](https://www.ag-grid.com/javascript-data-grid/server-side-model/?utm_source=chatgpt.com)
+- **Server-Side Grouping, Aggregation & Pivoting**
+  - Performs complex data operations—grouping, aggregations, pivot views—on the server side to optimize rendering and responsiveness.
+    [oai_citation:1‡ag-grid.com](https://www.ag-grid.com/javascript-data-grid/server-side-model/?utm_source=chatgpt.com)
+- **Dynamic Data Loading**
+  - Fetches and displays only what’s necessary—parent rows initially, followed by child data when groups expand.
+    [oai_citation:2‡ag-grid.com](https://www.ag-grid.com/javascript-data-grid/server-side-model/?utm_source=chatgpt.com)
+- **Modular Architecture**
+  - Registers only the required AG Grid modules (e.g., Server-Side Row Model, Enterprise features) to reduce bundle size and keep the app performant.
+    [oai_citation:3‡ag-grid.com](https://www.ag-grid.com/javascript-data-grid/modules/?utm_source=chatgpt.com)
+- **Enterprise Capabilities**
+  - Integrates enterprise-level features like Excel export, tool panels, custom filters, context menus, and more for advanced interactivity and user experience.
+    [oai_citation:4‡npm](https://www.npmjs.com/package/ag-grid-community?utm_source=chatgpt.com) [oai_citation:5‡ag-grid.com](https://www.ag-grid.com/javascript-data-grid/community-vs-enterprise/?utm_source=chatgpt.com)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack & Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Frontend**: React + AG Grid, configured to use the Server-Side Row Model and relevant modules.
+- **Backend**: Acts as a data source, serving paginated/grouped data on demand. Compatible with REST, GraphQL, or other server implementations.
+- **Configuration**: Modular registration using `ModuleRegistry` or per-grid `modules` prop for optimal bundle control.
+  [oai_citation:6‡ag-grid.com](https://www.ag-grid.com/javascript-data-grid/modules/?utm_source=chatgpt.com)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/matoliya-shubham/ag-grid-project.git
+cd ag-grid-project
+npm install
+npm start
 ```
